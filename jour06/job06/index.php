@@ -7,42 +7,47 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    $str = "Je marque n'importe quoi car je sais pas quoi mettre.";
-    function leetspeak(){
-        $count = 0;
-for ($i = 0; isset($str[$i]); $i++) {
-    $count++;
-}
-        $result = "";
-        for($i=0 ; isset($str[$i]) ; $i++){
-            if ($str[$i] == "a" or $str[$i] == "A"){
-                $result[$i] = "4";
-            }
-            elseif ($str[$i] == "b" or $str[$i] == "B"){
-                $result[$i] = "8";
-            }
-            elseif ($str[$i] == "e" or $str[$i] == "E"){
-                $result[$i] = "3";
-            }
-            elseif ($str[$i] == "g" or $str[$i] == "G"){
-                $result[$i] = "6";
-            }
-            elseif ($str[$i] == "l" or $str[$i] == "L"){
-                $result[$i] = "1";
-            }
-            elseif ($str[$i] == "s" or $str[$i] == "S"){
-                $result[$i] = "5";
-            }
-            elseif ($str[$i] == "t" or $str[$i] == "T"){
-                $result[$i] = "7";
-            }
-            else{ 
-                $result[$i] = $str[$i];
-            }
-        }
-        return $result
+<?php
+function leetspeak($str)
+{
+
+$result = "";
+
+for($i=0 ; isset($str[$i]) ; $i++ )
+{
+
+    if ($str[$i] == 'a' OR $str[$i] == 'A'){
+        $result[$i] = '4';
     }
-    echo leetspeak($str);
-    ?>
+    elseif ($str[$i] == 'b' OR $str[$i] == 'B'){
+        $result[$i] = '8';
+    }
+    elseif ($str[$i] == 'e' OR $str[$i] == 'E'){
+        $result[$i] = '3';
+    }
+    elseif ($str[$i] == 'g' OR $str[$i] == 'G'){
+        $result[$i] = '6';
+    }
+    elseif ($str[$i] == 'l'  OR $str[$i] == 'L'){
+        $result[$i] = '1';
+    }
+    elseif ($str[$i] == 's' OR $str[$i] == 'S'){
+        $result[$i] = '5';
+    }
+    elseif ($str[$i] == 't' OR $str[$i] == 'T'){
+        $result[$i] = '7';
+    }
+    else{
+        $result[$i] = $str[$i];
+    }
+}
+
+return ($result); 
+
+}
+$str = "je sais pas quoi ecrire donc j'ecris nimporte quoi";
+echo leetspeak($str);
+
+
+?>
 </body>

@@ -12,17 +12,18 @@
     $char = "m";
 
     function occurrences($str, $char){
-   
+        $count = 0;
+        $count2 = 0;
         for ($i = 0; isset($str[$i]); $i++){
-            $count = 0;
-            var_dump($i);
+            $count ++;
+        }
+        for ($i = 0; $i < $count; $i++){
             if ($str[$i] === $char){
-                $count ++;
-                var_dump($count);
-                return $count;
-
+                $count2 ++;
             }
         }
+        return $count2;
+
     }
 echo occurrences($str, $char)
 
