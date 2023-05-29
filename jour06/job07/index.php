@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+    // fonction Gras a completer affiche que le premier carractere en gras 
     function gras($str) {
         $count = 0;
         $result = "";
@@ -23,16 +24,8 @@
         }
         return $result;
     }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $selectedOption = $_POST["fonction"];
-    if ($selectedOption == "fonction1") {
-        $phrase = $_POST["str"];
-        $resultat = gras($phrase);
 
-        echo $resultat;
-    }
-}
-
+// fonction César add une méthode pour changer le nombre de décalage si le temps
     function cesar($str, $nb=2) {
         $count = 0;
         $result = "";
@@ -46,15 +39,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         return $result;
     }
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $selectedFunction = $_POST['fonction'];
-        $inputStr = $_POST['str'];
 
-        if ($selectedFunction === "fonction2") {
-            $outputStr = cesar($inputStr);
-            echo "Résultat : " . $outputStr;
+// fonction plateforme add _ fin des mot "me" !!!full fonction système ff 
+    function plateforme($str){
+        $words = explode(' ', $str); 
+        $result = "";
+    
+        foreach ($words as $word) {
+            if (substr($word, -2) === "me") {
+                $word .= "_";
+            }
+            $result .= $word . " ";
         }
+    
+        return rtrim($result); 
     }
+    // lien entre le form et les fonction 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $selectedOption = $_POST["fonction"];
+        $phrase = $_POST["str"];
+        $resultat = "";
+    
+        if ($selectedOption == "fonction1") {
+            $resultat = gras($phrase);
+        } elseif ($selectedOption == "fonction2") {
+            $resultat = cesar($phrase);
+        } elseif ($selectedOption == "fonction3") {
+            $resultat = plateforme($phrase);
+        }
+    
+        echo $resultat;
+    }
+
     ?>
 <h1>option</h1>
     <form method="post" action="">
