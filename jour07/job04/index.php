@@ -9,14 +9,29 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="">
+    <?php
+    if (!isset($_POST["prenom"])){
+    echo 
+    '<form method="post" action="">
         <input type="text" name="prenom">
         <input type="submit" name="connection" value="connection">
-    </form>
+    </form>';
+    }
+    ?>
     <?php
     if (isset($_POST["prenom"])){
         setcookie("prenom",$_POST["prenom"]);
+        echo "bonjour" . " " . $_COOKIE["prenom"];
+        echo '<form method="post" action="">
+        <input type="submit" name="deconection" value="deco">
+        </form>';
     }
-    echo "bonjour" . " " . $_COOKIE["prenom"];
+
+
+
+    if (isset($_POST["deconection"])){
+        setcookie("prenom", "", time() - 3600);
+        echo "vous etes déconnectez";
+    }
     ?>
 </body>
