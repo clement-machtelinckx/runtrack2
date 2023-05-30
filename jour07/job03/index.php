@@ -2,10 +2,13 @@
 session_start();
 
 if (isset ($_POST["prenom"])){
-    $_SESSION["prenom"] = $_POST["prenom"];
-    echo $_SESSION["prenom"];
-}
+    $prenom = $_POST["prenom"];
 
+if (!isset($_SESSION["list_prenom"])){
+    $_SESSION["list_prenom"] = array();
+}
+$_SESSION["list_prenom"][] = $prenom;
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,4 +25,14 @@ if (isset ($_POST["prenom"])){
 <input type="submit" name="Submit" value="submit">
 <input type="submit" name="reset" value="Reset">
 </form>
+<?php
+if (isset($_SESSION["list_prenom"])){
+    foreach ($_SESSION["list_prenom"] as $prenom){
+        echo $prenom . "<br>";
+    }
+}
+if (isset($_POST["reset"])){
+    session_destroy();
+}
+?>
 </body>
