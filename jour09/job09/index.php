@@ -20,7 +20,7 @@ try {
 
     echo "<th>Nom</th>";
     echo "<th>id_etage</th>";
-    echo "<th>capacite<th>";
+    echo "<th>capacite</th>";
 
     echo "</tr>";
     echo "</thead>";

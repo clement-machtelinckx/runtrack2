@@ -20,8 +20,8 @@ try {
     echo "<th>Prénom</th>";
     echo "<th>Nom</th>";
     echo "<th>Naissance</th>";
-    echo "<th>Sexe<th>";
-    echo "<th>Email<th>";
+    echo "<th>Sexe</th>";
+    echo "<th>Email</th>";
     echo "</tr>";
     echo "</thead>";
     echo "<tbody>";
